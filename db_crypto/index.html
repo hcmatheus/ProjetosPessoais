@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INFORMAÇÕES DAS CRYPTOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action = "Teste_db_crypto.php" method = "post">
+
+            <div>
+                <select name="nome" > 
+                    <option value ="Bitcoin">Bitcoin</option>
+                    <option value ="Ethereum">Ethereum</option>
+                    <option selected="selected" value ="Bitcoin,Ethereum">Todas</option>
+                </select>
+            </div>
+
+
+            <div>
+                <br>
+                <input type = "submit" name = "insert" value = "Adicionar Manualmente ao Database">  
+            </div>
+            <br>
+
+            <form>
+                <div>
+                    <label for="dia-ini">Dia Inicial: </label>
+                    <input id=dateIni name="dateIni" type="date">
+                        <script>
+                            document.getElementById('dateIni').value = new Date().toJSON().substring(0, 10);
+                            // document.getElementById('dateIni').value = new Date().toLocaleDateString()
+                        </script>
+                </div>  
+                <div>
+                    <label for="hora-ini">Hora Inicial: </label>
+                    <input id="timeIni" name="timeIni" type="time" value="00:00:00"> 
+                    
+                </div>
+                <div>
+                    <label for="dia-fim">Dia Final: </label>
+                    <input id="dateFim" name="dateFim" type="date"> 
+                    <script>
+                        document.getElementById('dateFim').value = new Date().toISOString().substring(0, 10);
+                        // document.getElementById('dateFim').value = new Date().toLocaleDateString()
+                    </script>
+                </div>  
+                <div>
+                    <label for="hora-fim">Hora Fim: </label>
+                    <input id="timeFim" name="timeFim" type="time">
+                    <script>
+                        var dataAtual = new Date();
+                        var horas = dataAtual.getHours();
+                        var horasFormatado = horas < 10 ? `0${horas}` : horas;
+                        var minutos = dataAtual.getMinutes();
+                        var minutosFormatado = minutos < 10 ? `0${minutos}` : minutos;
+                        var dataFinal = `${horasFormatado}:${minutosFormatado}`;
+                        document.getElementById('timeFim').value = dataFinal;
+                        //toLocaleTimeString()
+                    </script>
+                </div>
+    
+                <div>
+                    <label for = "indexBox">Fear and Greed Index</label>
+                    <input type = "checkbox" id="indexBox" name="index">
+                </div>
+    
+                <div>
+                    <input type = "submit" name = "busca" value = "Buscar no Database">
+                </div>
+            </form>
+            
+
+
+
+
+        </form>
+    </body>
+</html>
