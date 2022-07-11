@@ -1,0 +1,16 @@
+name: Adicionar todas as issues ao projeto pessoal por padrao
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.1.0
+        with:
+          project-url: https://github.com/users/hcmatheus/projects/4
+          github-token: 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
